@@ -1,0 +1,173 @@
+#divPrincipal {
+    width: 90%;
+    margin:0 auto;
+}
+
+body{
+    background-image: url(https://i.pinimg.com/474x/1c/82/93/1c829347908215b57af2743e147569d2.jpg);
+    background-attachment: fixed;
+}
+
+#banner{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center; 
+}
+
+ul {
+    list-style: georgian;
+    font-size: x-large;
+}
+
+li {
+    font-family: 'Dancing Script', cursive;
+    font-size: xx-large;
+  
+}
+a {
+    color: black;
+
+}
+
+h1 {
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    font-size: xx-large;
+    color: rgb(75, 20, 20);
+    
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'MedievalSharp', cursive;
+}
+
+p {
+    font-family: 'Caveat', cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: antiquewhite;
+    
+}
+
+a:hover {
+    color: rgb(247, 246, 245);  
+    font-weight: bold;
+    text-decoration:overline;
+    
+}
+
+img:hover{
+    cursor:-webkit-grab;
+}
+
+#otroDiv {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.contenedorTarjetas {
+    margin-top: 20px;
+    width: 100%;    
+}
+
+.tarjeta {
+    border: 1px solid #000000;
+    padding: 1%;
+    display: inline-block;
+    border-radius: 5%;
+    box-shadow: 3px 3px 3px rgb(37, 36, 36); 
+}
+
+.tarjetaUnTercio {
+    width: 30%;
+   
+}
+
+.tarjetaUnCuarto {
+    width: 22%;
+}
+
+.tarjetaUnQuinto {
+    width: 17%;
+}
+
+.espacioDos {
+    margin-top: 1%;
+    width: 97%;
+}
+
+.espacioTres {
+    margin-top: 1%;
+    width: 97%;
+    font-family: 'Akronim', cursive;
+    color: rgb(0, 0, 0);
+    font-size: x-large;
+    text-align: center;
+    background-color: rgba(250, 235, 215, 0.596);
+}
+
+.espacioCuatro {
+    margin-top: 1%;
+    width: 97%;
+    font-family: 'MedievalSharp', cursive;
+    color: rgb(0, 0, 0);
+    font-size: x-large;
+    text-align: center;
+    background-color: rgba(250, 235, 215, 0.596);
+}
+
+
+.fotoTemporada{
+    width: 100%;
+}
+.textoTarjeta{
+    width: 61%;
+    word-wrap: break-word;
+    font-family: 'Bangers', cursive;
+    color: black;
+    float:left;
+    background-color: rgba(250, 235, 215, 0.562);
+    border-radius: 5%;
+}
+
+.textoPersonaje {
+    margin: auto;
+    background-color: rgba(100, 59, 6, 0.562);
+    border-radius: 4%;
+    width: 70%;
+}
+
+.espacioEnlaceTarjeta {
+    width: 34%;
+    text-align: center;
+    font-family: 'Rye', cursive;
+    color: black; 
+    float: right;
+}
+
+.divMarcos {
+    margin-left: auto;
+    margin-right: auto;
+    width:30%;
+    text-align: center;
+    border-radius: 10%;
+    border: solid;
+    background-color: rgba(206, 180, 165, 0.336);
+    box-shadow: 3px 3px 3px rgb(102, 36, 36);
+}
+
+.imagenAnchoCompleto {
+    width: 100%;
+}
+
