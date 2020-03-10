@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="xml-xsl-ejercicio01.xsl" ?>
+
+<superheroe>
+	<nombre>Thor, el Dios trueno</nombre>
+	<poderes>Martillo mágico, Dios, Fuerza</poderes>
+	<amigos>Iron Man y Hulk</amigos>
+  <enemigos>Linterna verde</enemigos>
+</superheroe>
