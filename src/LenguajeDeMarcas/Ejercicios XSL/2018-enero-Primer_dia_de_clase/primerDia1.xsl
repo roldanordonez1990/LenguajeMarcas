@@ -12,10 +12,14 @@
         img{
         width: 35px;
         }
+        
+        td{
+        text-align: center;
+        }
 
       </style>
       <body>
-        <table border="1" width="80%">
+        <table border="3" width="90%">
           <thead>
             <td></td>
             <td>8:30-9:30</td>
@@ -30,6 +34,7 @@
           <tr>
             <td> <xsl:value-of select="@desc"/></td>
             <xsl:for-each select="hora">
+              <xsl:sort select="@orden" order="ascending"/>
               <xsl:choose>
                 <xsl:when test="position() mod 2 = 1">
               <td style="background: #77c9f2"><xsl:value-of select="."/></td>
@@ -43,7 +48,7 @@
           </xsl:for-each> 
         </table>
 
-        <table border="1" align="center">
+        <table border="3" width="90%">
           <xsl:call-template name="bucleForFila">
             <xsl:with-param name="i">1</xsl:with-param>
           </xsl:call-template>
@@ -121,6 +126,7 @@
 
       <xsl:for-each select="alumnado/alumno">
         <xsl:if test="$x = @x and $y = @y">
+
           <xsl:choose>
             <xsl:when test="@sexo = 'M'">
               <xsl:attribute name="style">background:#ffbaf4</xsl:attribute>
@@ -130,6 +136,7 @@
               <xsl:attribute name="style">background:#7af59b</xsl:attribute>
               <img src="{/primerDia1DAW/alumnado/imagen[@sexo='H']}"></img>
             </xsl:otherwise>
+             
           </xsl:choose>
           <xsl:value-of select="."/>
         </xsl:if>
