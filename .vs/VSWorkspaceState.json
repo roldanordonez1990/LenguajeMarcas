@@ -2,13 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\JAVA SCRIPT",
+    "\\src\\JAVA SCRIPT\\Primeros ejercicios",
     "\\src\\LenguajeDeMarcas",
-    "\\src\\LenguajeDeMarcas\\Ejercicios XSL",
-    "\\src\\LenguajeDeMarcas\\Ejercicios XSL\\2016-marzo-Tanques_con_imagenes",
-    "\\src\\LenguajeDeMarcas\\Ejercicios XSL\\2018-enero-Primer_dia_de_clase",
-    "\\src\\LenguajeDeMarcas\\Ejercicios XSL\\2019-febrero-Partido_de_baloncesto",
-    "\\src\\LenguajeDeMarcas\\Ejercicios XSL\\2019-febrero-Partido_de_baloncesto\\recursos"
+    "\\src\\LenguajeDeMarcas\\EjerciciosHTML",
+    "\\src\\LenguajeDeMarcas\\EjerciciosHTML\\Juego de Tronos"
   ],
-  "SelectedNode": "\\src\\LenguajeDeMarcas\\Ejercicios XSL\\2018-enero-Primer_dia_de_clase\\primerDia1DAW.xml",
+  "SelectedNode": "\\src\\JAVA SCRIPT\\Primeros ejercicios\\ejerciciosArrays01.html",
   "PreviewInSolutionExplorer": false
 }
