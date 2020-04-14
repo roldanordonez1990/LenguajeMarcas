@@ -1,0 +1,56 @@
+
+<html>
+    <head>
+        <title>Ordenación de objetos</title>
+    </head>
+    <body>
+        <h2>Ejercicio de ordenamiento de objetos con JS</h2>
+        <button onclick="ordenar2()">Ordenar por nombre</button>
+        <button onclick="ordenar()">Ordenar por precio</button>
+        <p id="demo"></p>
+        <script>
+        
+         var coche = [
+
+             {modelo: "Mercedes", precio: 20000},
+             {modelo: "Audi", precio: 35000},
+             {modelo: "Ford", precio: 15000},
+             {modelo: "Jaguar", precio: 28000},
+
+         ];
+         
+
+        function ordenar(){
+            coche.sort(function(a, b) {return a.precio - b.precio});
+            display();
+        };
+
+        function display(){
+            
+            document.getElementById("demo").innerHTML = 
+            coche[0].modelo + " " + coche[0].precio + "<br>" +
+            coche[1].modelo + " " + coche[1].precio + "<br>" +
+            coche[2].modelo + " " + coche[2].precio + "<br>" +
+            coche[3].modelo + " " + coche[3].precio
+        }
+    
+        function ordenar2(){
+            coche.sort(function(a, b){
+
+                var x = a.modelo;
+                var y = b.modelo;
+
+                if(x > y) {return-1;};
+                if(x < y) {return 1;};
+
+                return 0;
+
+            });
+            display();
+
+        };
+
+        </script>
+         
+    </body>
+</html>
