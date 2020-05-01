@@ -8,18 +8,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
+        
         $(document).ready(function(){
           $("#show").click(function(){
             init().show();
+            
           });
+
         });
         </script>
 </head>
-<body onkeypress="onDocumentKeyDown(event)">
+<body onkeypress="moverDerecha()">
     <div class="contenedor">
         <div class="juego">
-            <canvas id="canvas" width="799" height="500"></canvas>
-           
+            <canvas id="canvas" width="799" height="530"></canvas>
+        
             <div class="boton">
                 <button id="show">Start Game</button>
             </div>
