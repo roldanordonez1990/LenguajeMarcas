@@ -13,6 +13,7 @@
         $(document).ready(function(){
           $("#show").click(function(){
            init();
+          
           });
 
           $("#refrescar").click(function(){
@@ -20,22 +21,28 @@
            location.reload();
           });
 
+          $(document).stop(function(){
+         colision();
+          
+          });
+          
         });
         </script>
+        
 </head>
 <body>
     <class class="contenedor">
         <div class="juego">
             <canvas id="canvas" width="799" height="529"></canvas>
+            
         </div>
-
         </class>
       </br>
           <button id="show" onload="init()">Start Game/Stop Game</button>
-      
           <button id="refrescar">Refrescar</button>
-      
-      
     </div>
+
+  
+   
 </body>
 </html>

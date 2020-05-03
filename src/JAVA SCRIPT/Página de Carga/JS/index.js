@@ -1,5 +1,6 @@
 var canvas,
 ctx,
+ctx2,
 imgFondo, // Imagen del background del juego
 imgPelota,
 imgBomba,
@@ -41,17 +42,18 @@ function init() {
    
     // Obtención del elemento html con id = "canvas". Puedes mirar el código html para entender mejor esto
     canvas = document.getElementById('canvas');
+
     // Necesitamos el contexto del canvas, para poderlo utilizar como "brocha", gracias a este elemento podremos
     // asignar colores y pintar primitivas, imágenes, textos, etc.
     ctx = canvas.getContext("2d");
+
 
     // Start the first frame request
     window.requestAnimationFrame(gameLoop);
 
     
    
-  
-}
+  }
 
 function gameLoop(timeStamp){
   paintEscena();
@@ -124,23 +126,24 @@ function preloadImages() {
            }   
      });
 
-     // Cargamos la imagen de la pelota
 
-     imgPelota = new Image();
-     imgPelota.src = 'images/pelota.png';
-    
-     imgPelota.addEventListener('load', function() {
-       // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
-       imgCargadas++;
-       paintEscena();
 
-     }, false); 
+     
+     // Carga de la imagen del fondo del juego
+    imgPelota = new Image();
+    imgPelota.src = 'images/pelota.png';
+   
+    imgPelota.addEventListener('load', function() {
+        // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
+        imgCargadas++;
+        paintEscena();
+      }, false);
 
 }
 
 function paintEscena () {
 // Sólo pasamos a pintar la escena si nos aseguramos de que las dos imágenes han sido cargadas correctamente.
-if (imgCargadas == 4) {
+if (imgCargadas >= 4) {
 refrescarMundo();
 refrescaZapatilla();
 colision();
@@ -158,7 +161,10 @@ ctx.drawImage(imgBomba, CoorBombaX, CoorBombaY, BombaWidth, BombaHeight);
 ctx.drawImage(imgZapatilla, CoorZapaX, CoorZapaY, ZapaWidth, ZapaHeight);
 
 
+
 }
+
+
 
 
 function moverDerecha(){
@@ -237,7 +243,9 @@ function colision(){
     CoorY < CoorZapaY + ZapaHeight &&
     HEIGHT + CoorY > CoorZapaY) {
 
-      alert("¡GAME OVER! HAS CHOCADO");
+     
+      alert("¡GAME OVER! ¡HAS CHOCADO! Pulsa para otra partida");
+  
       document.location.reload();
      
       // ¡colision detectada!
@@ -247,13 +255,15 @@ function colision(){
   CoorX + WIDTH > CoorBombaX &&
   CoorY < CoorBombaY + BombaHeight &&
   HEIGHT + CoorY > CoorBombaY){
-    alert("¡GAME OVER! HAS CHOCADO");
-    document.location.reload();
 
+   
+   alert("¡GAME OVER! ¡HAS CHOCADO! Pulsa para otra partida");
+ 
+    document.location.reload();
  }
 }
- 
+
+
 
  
 
-  

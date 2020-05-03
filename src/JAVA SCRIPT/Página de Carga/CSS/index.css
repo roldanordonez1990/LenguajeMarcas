@@ -11,6 +11,7 @@ div.contenedor {
     margin: 0 auto;
 }
 
+
 div.juego canvas {
     box-shadow: 0 0 30px rgb(43, 34, 34);
     background-color: rgb(98, 173, 98);
