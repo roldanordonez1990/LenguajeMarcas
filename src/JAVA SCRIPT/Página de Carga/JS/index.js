@@ -4,9 +4,11 @@ imgFondo, // Imagen del background del juego
 imgPelota,
 imgBomba,
 imgZapatilla,
+imgGameOver,
 colapso = false;
 
 imgCargadas = 0;
+
 
 
 //Coordenadas para la pelota
@@ -46,6 +48,7 @@ function init() {
     // Start the first frame request
     window.requestAnimationFrame(gameLoop);
 
+    
    
   
 }
@@ -61,7 +64,7 @@ function gameLoop(timeStamp){
 
 function preloadImages() {
 
-    
+  
     // Lo primero es comenzar a cargar las imágenes
   
     
@@ -132,6 +135,7 @@ function preloadImages() {
        paintEscena();
 
      }, false); 
+
 }
 
 function paintEscena () {
@@ -139,8 +143,10 @@ function paintEscena () {
 if (imgCargadas == 4) {
 refrescarMundo();
 refrescaZapatilla();
+colision();
 // Pintamos el fondo, el personaje, los caracteres adivinados y los fallos comentidos por el usuario. Cada cosa en su función
 paintFondo();
+
 }
 }
 
@@ -225,7 +231,29 @@ function refrescaZapatilla() {
   
   }
   
+function colision(){
+  if (CoorX < CoorZapaX + ZapaWidth &&
+    CoorX + WIDTH > CoorZapaX &&
+    CoorY < CoorZapaY + ZapaHeight &&
+    HEIGHT + CoorY > CoorZapaY) {
 
+      alert("¡GAME OVER! HAS CHOCADO");
+      document.location.reload();
+     
+      // ¡colision detectada!
+     console.log("Colision");
+ }
+ if(CoorX < CoorBombaX + BombaWidth &&
+  CoorX + WIDTH > CoorBombaX &&
+  CoorY < CoorBombaY + BombaHeight &&
+  HEIGHT + CoorY > CoorBombaY){
+    alert("¡GAME OVER! HAS CHOCADO");
+    document.location.reload();
 
-   
+ }
+}
+ 
 
+ 
+
+  
