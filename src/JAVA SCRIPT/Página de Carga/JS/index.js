@@ -34,7 +34,8 @@ var ZapaHeight = 80;
 var zx = 5;
 var zy = -5;
 
-
+//Array de vidas
+var vidas = new vidas[3];
 
 function init() {
     alert("Intenta no chocar con los objetos moviéndote con la pelota");
@@ -142,7 +143,7 @@ function paintEscena () {
         moverZapatilla();
         colision();
         paintFondo();
-  //Le damos la condición de que si es finde de juego, pinte en escena el game over
+  //Le damos la condición de que si es finDeJuego, pinte en escena el game over
   if (finDeJuego){
       gameOver();
     }
