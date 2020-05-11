@@ -7,7 +7,8 @@ imgPelota,
 imgBomba,
 imgZapatilla,
 imgGameOver,
-finDeJuego = false;
+finDeJuego = false,
+imgVida,
 imgCargadas = 0;
 
 //Coordenadas y dimensiones para la pelota
@@ -35,7 +36,16 @@ var zx = 5;
 var zy = -5;
 
 //Array de vidas
-var vidas = new vidas[3];
+var vidas = new Array(imgVida, imgVida, imgVida);
+var vidasX = 100;
+var vidasY = 100;
+var vidasWidth = 80;
+var vidasHeight = 80;
+
+
+
+
+
 
 function init() {
     alert("Intenta no chocar con los objetos moviéndote con la pelota");
@@ -69,6 +79,15 @@ function init() {
         imgCargadas++;
         paintEscena();
       }, false);
+
+       //Carga de la imagen del fondo del juego
+       imgVida = new Image();
+       imgVida.src = 'images/vida.png';
+       imgVida.addEventListener('load', function() {
+       // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
+       imgCargadas++;
+       paintEscena();
+     }, false);
 
       // Carga de la imagen de la zapatilla del juego
         imgZapatilla = new Image();
@@ -137,7 +156,7 @@ function init() {
 
 function paintEscena () {
   //Las imágenes aparecerán en escena si el total de imágenes es el indicado
-  if (imgCargadas >= 4) {
+  if (imgCargadas = 5) {
         //pintamos las nuevas posiciones de los objetos y se irán pintando en cada iteración del frame que es llamado en gameLoop
         moverBomba();
         moverZapatilla();
@@ -156,6 +175,10 @@ function paintFondo () {
   ctx.drawImage(imgPelota, CoorX, CoorY, WIDTH, HEIGHT);
   ctx.drawImage(imgBomba, CoorBombaX, CoorBombaY, BombaWidth, BombaHeight);
   ctx.drawImage(imgZapatilla, CoorZapaX, CoorZapaY, ZapaWidth, ZapaHeight);
+  for(var i = 0; i <vidas.length; i++){
+    vidas [i] = ctx.drawImage(imgVida, vidasX, vidasY, vidasWidth, vidasHeight);
+  }
+  
 }
 
 //Movemos hacia la derecha la pelota sumando coordenadas
