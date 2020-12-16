@@ -14,7 +14,7 @@ div.contenedor {
 
 div.juego canvas {
     box-shadow: 0 0 30px rgb(43, 34, 34);
-    background-color: rgb(98, 173, 98);
+    background-color:#03bafc;
 }
 
 #show {
@@ -34,3 +34,27 @@ div.juego canvas {
     
 }
 
+.snow {
+    top:10px;
+    left:10px;
+    position:absolute;
+    z-index:200;
+    color:#fff;
+   
+    
+}
+body {background-color:grey;}
+#site {
+    width:800px;
+    height:800px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+}
+
+#snowflakes {
+    position: relative;
+    left: 21%;
+    width: 789px;
+    height: 529px;
+}
