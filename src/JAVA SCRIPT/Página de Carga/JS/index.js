@@ -59,10 +59,13 @@ function init() {
 
   }
 
-  function gameLoop(timeStamp){
+  function gameLoop(){
     paintEscena();
   
     // Keep requesting new frames
+    //El método requestAnimationFrame solicita que el navegador llame a una función específica 
+    //tan pronto como sea posible antes de que ocurra el siguiente repintado. 
+    //Es una API específicamente para renderizar animaciones
     window.requestAnimationFrame(gameLoop);
   }
   
@@ -105,29 +108,46 @@ function init() {
         imgCargadas++;
         paintEscena();
       }, false);
+
+      // Carga de la imagen de la cabeza del juego
+      imgCabeza = new Image();
+      imgCabeza.src = 'images/cabeza.png';
+      imgCabeza.addEventListener('load', function() {
+      // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
+      imgCargadas++;
+      paintEscena();
+      }, false);
+
+      // Carga de la imagen de la pelota del juego
+      imgGameOver = new Image();
+      imgGameOver.src = 'images/gameover.png';
+      imgGameOver.addEventListener('load', function() {
+      // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
+      }, false);
+      
       
         //Con este evento damos la funcionalidad a las teclas para mover la pelota
         document.addEventListener("keydown", function(event){
-        
-        if(event.keyCode == 39){
+        var keyPress = event.key;
+        if(keyPress == "ArrowRight"){
         console.log("Has pulsado la derecha");
         moverDerecha();
         //Pintaremos la escena cada vez que la imagen se mueva y se repinte en la nueva posición
         paintEscena();
         }
-        if(event.keyCode == 37){
+        if(keyPress == "ArrowLeft"){
         console.log("Has pulsado la izquierda");
         moverIzquierda();
         //Pintaremos la escena cada vez que la imagen se mueva y se repinte en la nueva posición
         paintEscena();
         }
-        if(event.keyCode == 38){
+        if(keyPress == "ArrowUp"){
         console.log("Has pulsado arriba");
         moverArriba();
         //Pintaremos la escena cada vez que la imagen se mueva y se repinte en la nueva posición
         paintEscena();
         }
-        if(event.keyCode == 40){
+        if(keyPress == "ArrowDown"){
         console.log("Has pulsado abajo");
         moverAbajo();
         //Pintaremos la escena cada vez que la imagen se mueva y se repinte en la nueva posición
@@ -135,28 +155,14 @@ function init() {
         }   
      });
      
-        // Carga de la imagen de la pelota del juego
-        imgCabeza = new Image();
-        imgCabeza.src = 'images/cabeza.png';
-        imgCabeza.addEventListener('load', function() {
-        // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
-        imgCargadas++;
-        paintEscena();
-        }, false);
-
-        // Carga de la imagen de la pelota del juego
-        imgGameOver = new Image();
-        imgGameOver.src = 'images/gameover.png';
-        imgGameOver.addEventListener('load', function() {
-        // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
-        }, false);
+        
 }
 function paintEscena () {
   //Las imágenes aparecerán en escena si el total de imágenes es el indicado
   if (imgCargadas = 6) {
         //pintamos las nuevas posiciones de los objetos y se irán pintando en cada iteración del frame que es llamado en gameLoop
-        moverBomba();
-        moverZapatilla();
+        moverRayo();
+        moverCopo();
         colision();
         paintFondo();
 
@@ -178,7 +184,7 @@ function paintFondo () {
     }
   }
   
-//Movemos hacia la derecha la pelota sumando coordenadas
+//Movemos hacia la derecha la cabeza sumando coordenadas
 function moverDerecha (){
   CoorX += px;
   //Le indicamos que no se pueda salir del canvas
@@ -214,8 +220,8 @@ function moverAbajo(){
   }
 }
 
-function moverBomba() {
-  //Le damos una velocidad fija a la bomba y le decimos que no salga del canvas
+function moverRayo() {
+  //Le damos una velocidad fija al rayo y le decimos que no salga del canvas
   CoorBombaX += bx;
   CoorBombaY += by;
   if(CoorBombaX + bx > canvas.width - 90 || CoorBombaX + bx < 0) {
@@ -227,8 +233,8 @@ function moverBomba() {
   }
 }
 
-  function moverZapatilla() {
-    //Le damos una velocidad fija a la zapatilla y le decimos que no salga del canvas
+  function moverCopo() {
+    //Le damos una velocidad fija al copo y le decimos que no salga del canvas
     CoorZapaX += zx;
     CoorZapaY += zy;
     if(CoorZapaX + zx > canvas.width -90 || CoorZapaX + zx < 0) {
@@ -267,9 +273,11 @@ function moverBomba() {
   CoorX + WIDTH  > CoorBombaX  &&
   CoorY < CoorBombaY + BombaHeight &&
   HEIGHT + CoorY > CoorBombaY){
+
     var sonidoPerder = new Audio();
     sonidoPerder.src='music/romper.mp3';
     sonidoPerder.play();
+    
     if ((CoorBombaX <= CoorX+WIDTH && CoorBombaX >= CoorX) || (CoorBombaX+BombaWidth >= CoorX && CoorBombaX+BombaWidth <= CoorX+WIDTH ))
     bx = -bx;
   if ((CoorBombaY <= CoorY+HEIGHT && CoorBombaY >= CoorY) || (CoorBombaY+BombaHeight >= CoorY && CoorBombaY+BombaHeight <= CoorY+HEIGHT ))
@@ -301,14 +309,12 @@ function gameOver () {
 
 snowCount = 0;
 function snowFlakes(){
-    console.log(snowCount);
     if(snowCount > 800){
-        
         return false
     }else{
     var randomTime = Math.floor(Math.random() * (500) * 2);
     setTimeout(function(){
-        snowCount = snowCount +1;
+        snowCount++;
         jquerysnow();
        snowFlakes();
     },randomTime);

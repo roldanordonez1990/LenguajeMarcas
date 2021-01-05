@@ -15,7 +15,9 @@ div.contenedor {
 div.juego canvas {
     box-shadow: 0 0 30px rgb(43, 34, 34);
     background-color:#03bafc;
+    
 }
+
 
 #show {
     background-color: rgba(235, 107, 102, 0.664);
@@ -43,7 +45,10 @@ div.juego canvas {
    
     
 }
-body {background-color:grey;}
+body {
+    background-color:grey;
+}
+
 #site {
     width:800px;
     height:800px;
